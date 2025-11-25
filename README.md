@@ -70,6 +70,7 @@
  :value v
  :left  left-subtree
  :right right-subtree}
+```
 
 **Особенности:**
 
