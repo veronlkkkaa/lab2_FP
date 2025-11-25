@@ -1,0 +1,85 @@
+# ======================================================
+# Clojure / Leiningen / Java
+# ======================================================
+
+# Compiled output
+/classes/
+/target/
+*.class
+
+# AOT artifacts
+/**/*.class
+
+# Local Maven repo if used
+.m2/
+
+# REPL files
+.nrepl-port
+repl-port
+
+# JVM crash logs
+hs_err_pid*
+replay_pid*
+
+# Leiningen profiles
+profiles.clj
+
+# Checkouts used by Leiningen
+/checkouts/
+
+# ======================================================
+# Clojure tools (clj-kondo, LSP)
+# ======================================================
+
+# clj-kondo linting cache
+.clj-kondo/
+
+# Clojure LSP cache/indexing
+.lsp/
+
+# ======================================================
+# Editors
+# ======================================================
+
+# VSCode
+.vscode/
+.history/
+
+# IntelliJ / Cursive
+.idea/
+*.iml
+out/
+
+# Emacs / Vim / Sublime / generic temp
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# MacOS Finder garbage
+.DS_Store
+
+# ======================================================
+# Logs
+# ======================================================
+
+*.log
+
+# ======================================================
+# Node (if any JS tooling is used)
+# ======================================================
+
+node_modules/
+
+# ======================================================
+# Generated docs
+# ======================================================
+
+/doc/
+
+# ======================================================
+# Git noise
+# ======================================================
+
+*.orig
