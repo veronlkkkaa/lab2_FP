@@ -43,3 +43,48 @@
     (is (= "a" (dict/lookup m 1)))
     (is (= "b" (dict/lookup m 2)))
     (is (dict/equal? d1 (dict/mappend d1 dict/empty-dict)))))
+
+(deftest standard-interfaces-test
+  (testing "Проверка реализации стандартных коллекционных протоколов"
+    (let [d (-> empty-dict
+                (insert 3 "c")
+                (insert 1 "a")
+                (insert 2 "b"))]
+
+      (testing "Seqable"
+        (is (= (seq d) '(1 2 3))))
+
+      (testing "Counted"
+        (is (= 3 (count d)))
+        (is (= 0 (count empty-dict))))
+
+      (testing "ILookup"
+        (is (= "a" (get d 1)))
+        (is (= "b" (get d 2)))
+        (is (= "c" (get d 3)))
+        (is (nil? (get d 10)))
+        (is (= :missing (get d 10 :missing))))
+
+      (testing "Associative"
+        (let [d2 (assoc d 10 "x")]
+          (is (= "x" (lookup d2 10)))
+          (is (= 4 (count d2))))
+        (is (contains? d 1))
+        (is (contains? d 2))
+        (is (contains? d 3))
+        (is (not (contains? d 99))))
+
+      (testing "IPersistentCollection"
+        (let [d2 (conj d [10 "x"])]
+          (is (= "x" (lookup d2 10)))
+          (is (= 4 (count d2))))
+        (let [e (empty d)]
+          (is (= 0 (count e)))
+          (is (nil? (seq e)))))
+
+      (testing "IFn"
+        (is (= "a" (d 1)))
+        (is (= "b" (d 2)))
+        (is (= "c" (d 3)))
+        (is (nil? (d 100)))))))
+
