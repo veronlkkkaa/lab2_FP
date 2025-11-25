@@ -12,9 +12,8 @@
 (defn create-empty-dict []
   (->RBDict nil compare))
 
-;;----------------------------
-;; ВНУТРЕННИЕ УТИЛИТЫ
-;;----------------------------
+;; внутренние утилиты
+
 
 (defn- make-node [color k v l r]
   (->RBNode color k v l r))
@@ -31,9 +30,7 @@
 (defn- lookup-value [cmp root k]
   (some-> (lookup-node cmp root k) :value))
 
-;;------------------------------------------
-;; Балансировка красно-чёрного дерева (Окасаки)
-;;------------------------------------------
+;; Балансировка красно-чёрного дерева 
 
 (defn- balance [color k v left right]
   (cond
@@ -84,9 +81,7 @@
     :else
     (make-node color k v left right)))
 
-;;-----------------------------------------
-;; ВСТАВКА
-;;-----------------------------------------
+;; Вставка
 
 (defn- insert-node [cmp root k v]
   (letfn [(ins [node]
@@ -112,9 +107,7 @@
     (let [new-root (ins root)]
       (assoc new-root :color BLACK))))
 
-;;---------------------------------------
-;; УДАЛЕНИЕ (упрощённое)
-;;---------------------------------------
+;; Удаление
 
 (defn- inorder [node]
   (if (nil? node)
@@ -139,9 +132,7 @@
                           pairs)]
     (from-sorted filtered)))
 
-;;---------------------------------------
 ;; FOLD, MAP, FILTER
-;;---------------------------------------
 
 (defn- foldl-node [f acc node]
   (if (nil? node) acc
@@ -168,9 +159,7 @@
                       (inorder node))]
     (from-sorted (vec pairs))))
 
-;;-------------------------------------------
-;; МЕТОДЫ ПРОТОКОЛА
-;;-------------------------------------------
+;; Методы протокола
 
 (extend-type RBDict
   api/IDict
@@ -215,9 +204,8 @@
     (= (inorder (:root this))
        (inorder (:root other))))
 
-  ;;--------------------------
+  
   ;; Реализация clojure.core протоколов
-  ;;--------------------------
 
   clojure.lang.Seqable
   (seq [this]
