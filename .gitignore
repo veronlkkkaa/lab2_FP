@@ -1,97 +1,24 @@
-# ======================================================
-# Clojure / Leiningen / Java
-# ======================================================
+# Теория (не нужна для сдачи)
+THEORY.md
 
-# Compiled output
-/classes/
-/target/
-*.class
-
-# AOT artifacts
-/**/*.class
-
-# Local Maven repo
-.m2/
-
-# REPL files
+# Leiningen
+target/
+.lein-*
 .nrepl-port
-repl-port
+.nrepl-history
 
-# JVM crash logs
-hs_err_pid*
-replay_pid*
-
-# Leiningen profiles
-profiles.clj
-
-# Checkouts used by Leiningen
-/checkouts/
-
-# ======================================================
-# Clojure tools (clj-kondo, LSP)
-# ======================================================
-
-# clj-kondo lint cache (ignores entire directory)
-.clj-kondo/
-
-# Optional: explicitly ignore long nested cache paths
-.clj-kondo/.cache/
-.clj-kondo/.cache/v1/
-.clj-kondo/.cache/v1/clj/
-.clj-kondo/.cache/v1/clj/*.transit.json
-
-# Clojure LSP cache/indexing
-.lsp/
-
-# ======================================================
-# Editors
-# ======================================================
-
-# VSCode
-.vscode/
-.history/
-
-# IntelliJ / Cursive
+# IDE
 .idea/
 *.iml
-out/
-
-# Emacs / Vim / Sublime / generic temp
-*~
+.vscode/
 *.swp
 *.swo
-*.tmp
-*.bak
+*~
 
-# MacOS Finder garbage
+# OS
 .DS_Store
+Thumbs.db
 
-# ======================================================
-# Logs
-# ======================================================
-
+# Временные файлы
 *.log
-
-# ======================================================
-# Node (if used)
-# ======================================================
-
-node_modules/
-
-# ======================================================
-# Generated documentation
-# ======================================================
-
-/doc/
-
-# ======================================================
-# Git noise
-# ======================================================
-
-*.orig
-
-# ======================================================
-# Leiningen failure marker
-# ======================================================
-
-.lein-failures
+*.tmp

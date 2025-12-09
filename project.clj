@@ -6,5 +6,5 @@
             [lein-kibit "0.1.8"]
             [lein-bikeshed "0.5.2"]]
 
-  :source-paths ["src"]
-  :test-paths ["test"])
+  :source-paths ["rb-dict/src"]
+  :test-paths ["rb-dict/test"])

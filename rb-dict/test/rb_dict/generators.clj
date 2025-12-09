@@ -2,6 +2,8 @@
   (:require [clojure.test.check.generators :as gen]
             [rb-dict.core :as dict]))
 
+(def gen-int gen/int)
+
 (def gen-pair
   (gen/tuple gen/int gen/int))
 
